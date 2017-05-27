@@ -1,11 +1,12 @@
-package B.BinarySearch.Easy.Search2DMatrix.SqrtX;
+package B.BinarySearch.Easy.SearchA2DMatrix;
 
 /**
  * http://www.lintcode.com/en/problem/search-a-2d-matrix/
  * Write an efficient algorithm that searches for a value in an m x n matrix.
  * This matrix has the following properties:
  * Integers in each row are sorted from left to right.
- * The first integer of each row is greater than the last integer of the previous row.
+ * The first integer of each row is greater than the last integer of the
+ * previous row.
  *
  * Example
  * Consider the following matrix:
@@ -77,7 +78,6 @@ class Solution {
         } else {
             return false;
         }
-
         // Search for the exact position of the target
         while (startCol + 1 < endCol) {
             int midCol = startCol + (endCol - startCol) / 2;
@@ -89,7 +89,6 @@ class Solution {
                 endCol = midCol;
             }
         }
-
         // The arrays are sorted in ascending order
         return matrix[row][startCol] == target
                 || matrix[row][endCol] == target;
