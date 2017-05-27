@@ -49,7 +49,7 @@ class Solution {
             return end;
         }
         if (nums[start] == target) {
-            return target;
+            return start;
         }
         return -1;
     }
