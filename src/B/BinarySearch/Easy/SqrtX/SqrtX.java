@@ -15,11 +15,6 @@ package B.BinarySearch.Easy.SqrtX;
 public class SqrtX {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        // int minus = -2;
-        // int zero = 0;
-        // int one = 1;
-        // int two = 2, three = 3, four = 4, five = 5, ten = 10;
-        // int big = 11111;
         int[] target = new int[]{-2, 0, 1, 2, 3, 4, 5, 10, 11111};
         for (int i = 0; i < target.length; i++) {
             System.out.println(solution.sqrt(target[i]));
