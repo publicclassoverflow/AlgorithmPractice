@@ -34,6 +34,8 @@ public class FirstBadVersion {
     }
 }
 
+// Lines 39 - 66 are runnable and correct on LintCode
+
 /**
  * public class SVNRepo {
  *     public static boolean SVNRepo.isBadVersion(int k);
@@ -42,23 +44,23 @@ public class FirstBadVersion {
  * the kth code version is bad or not.
  */
 
-class Solution {
-    /**
-     * @param n: An integers.
-     * @return: An integer which is the first bad version.
-     */
-    public int findFirstBadVersion(int n) {
-        // write your code here
-        int start = 0;
-        int end = n;
-        while (start + 1 < end) {
-            int mid = start + (end - start) / 2;
-            if (SVNRepo.isBadVersion(mid)) {
-                end = mid;
-            } else {
-                start = mid;
-            }
-        }
-        return (SVNRepo.isBadVersion(start)) ? start : end;
-    }
-}
+//class Solution {
+//    /**
+//     * @param n: An integers.
+//     * @return: An integer which is the first bad version.
+//     */
+//    public int findFirstBadVersion(int n) {
+//        // write your code here
+//        int start = 0;
+//        int end = n;
+//        while (start + 1 < end) {
+//            int mid = start + (end - start) / 2;
+//            if (SVNRepo.isBadVersion(mid)) {
+//                end = mid;
+//            } else {
+//                start = mid;
+//            }
+//        }
+//        return (SVNRepo.isBadVersion(start)) ? start : end;
+//    }
+//}
