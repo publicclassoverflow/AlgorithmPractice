@@ -11,6 +11,7 @@ package B.BinarySearch.Easy.LastPositionOfTarget;
  * For target = 5, return 5.
  * For target = 6, return -1.
  */
+
 public class LastPositionOfTarget {
     public static void main(String[] args) {
         Solution solution = new Solution();

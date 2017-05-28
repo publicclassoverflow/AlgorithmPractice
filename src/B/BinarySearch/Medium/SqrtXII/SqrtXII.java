@@ -13,6 +13,7 @@ package B.BinarySearch.Medium.SqrtXII;
  * I personally prefer the first method because it is classical binary search
  * whereas Newton's method is just too sublime to be a good practice
  */
+
 public class SqrtXII {
     public static void main(String[] args) {
         Solution solution = new Solution();
