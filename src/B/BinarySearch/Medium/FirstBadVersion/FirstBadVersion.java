@@ -30,7 +30,7 @@ package B.BinarySearch.Medium.FirstBadVersion;
 
 public class FirstBadVersion {
     public static void main(String[] args) {
-
+        // Nothing to test
     }
 }
 
@@ -41,7 +41,6 @@ public class FirstBadVersion {
  * you can use SVNRepo.SVNRepo.isBadVersion(k) to judge whether
  * the kth code version is bad or not.
  */
-
 
 class Solution {
     /**
