@@ -21,6 +21,7 @@ import java.util.List;
  *       / \
  *      5   6
  */
+
 public class LowestCommonAncestor {
     public static void main(String[] args) {
         Solution solution = new Solution();
@@ -40,7 +41,7 @@ public class LowestCommonAncestor {
             TreeNode B = anArg[1];
             TreeNode lca = solution.lowestCommonAncestor(four, A, B);
             System.out.format("The LCA for %d and %d is %d.%n",
-                    A.val, B.val, lca != null ? lca.val : "");
+                              A.val, B.val, lca != null ? lca.val : "");
         }
     }
 }
