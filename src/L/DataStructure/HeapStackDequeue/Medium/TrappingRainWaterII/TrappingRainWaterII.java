@@ -1,4 +1,4 @@
-package L.DataStructure.HeapStackDequeue.Medium.TrappingRainWater.TrappingRainWaterII;
+package L.DataStructure.HeapStackDequeue.Medium.TrappingRainWaterII;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
