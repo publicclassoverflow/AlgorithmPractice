@@ -29,8 +29,9 @@ public class HouseRobber {
                 {1, 1, 1, 1, 1},        // 3
                 {1, 2, 3, 4, 5, 6},     // 12
                 {1, 2},                 // 2
+                {1},                    // 1
                 {},                     // 0
-                {1}                     // 1
+                null                    // 0
         };
         for (int[] A : test) {
             System.out.format(
