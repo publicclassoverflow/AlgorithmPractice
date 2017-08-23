@@ -21,6 +21,7 @@ import java.util.Queue;
  * ]
  * return 3
  */
+/* There is also a solution using Union-Find in section L */
 
 public class NumberOfIslands {
     public static void main(String[] args) {
@@ -48,8 +49,6 @@ class Solution {
      * @param grid a boolean 2D matrix
      * @return an integer
      */
-    public final static int NUMDIR = 4; // Number of directions: u/d/l/r
-
     public int numIslands(boolean[][] grid) {
         // Write your code here
         if (grid == null || grid.length == 0 || grid[0].length == 0) {
@@ -86,7 +85,7 @@ class Solution {
         // BFS
         while (!queue.isEmpty()) {
             Coordinate current = queue.poll();
-            for (int k = 0; k < NUMDIR; k++) {
+            for (int k = 0; k < dx.length; k++) {
                 Coordinate next =
                         new Coordinate(current.x + dx[k], current.y + dy[k]);
                 if (!inBound(isIsland, next)) {
