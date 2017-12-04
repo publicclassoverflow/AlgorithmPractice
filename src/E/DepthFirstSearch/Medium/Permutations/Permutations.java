@@ -43,11 +43,11 @@ class Solution {
             return result;
         }
         if (nums.length == 0) {
-            result.add(new ArrayList<Integer>());
+            result.add(new ArrayList<>());
             return result;
         }
         findPermutations(
-            new ArrayList<Integer>(), new HashSet<Integer>(), nums, result
+                new ArrayList<>(), new HashSet<>(), nums, result
         );
         return result;
     }
@@ -57,7 +57,7 @@ class Solution {
                                   int[] nums,
                                   List<List<Integer>> result) {
         if (permutation.size() == nums.length) {
-            result.add(new ArrayList<Integer>(permutation));
+            result.add(new ArrayList<>(permutation));
             return;
         }
         // Method 1: for-each loop

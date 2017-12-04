@@ -27,7 +27,11 @@ public class CombinationSum {
         Solution solution = new Solution();
         // Test [2, 3, 6, 7] and target 7
         System.out.println(solution.combinationSum(
-                new int[]{2, 3, 6, 7}, 7
+                new int[] {2, 3, 6, 7}, 7
+        ));
+        // Test [10, 1, 6, 7, 2, 1, 5] and target 8
+        System.out.println(solution.combinationSum(
+                new int[] {10, 1, 6, 7, 2, 1, 5}, 8
         ));
     }
 }

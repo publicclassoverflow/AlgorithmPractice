@@ -30,7 +30,9 @@ public class SubsetsII {
     public static void main(String[] args) {
         Solution solution = new Solution();
         // Test S = [1,2,2]
-        System.out.println(solution.subsetsWithDup(new int[]{1, 2, 2}));
+        System.out.println(solution.subsetsWithDup(new int[] {1, 2, 2}));
+        // Test S = []
+        System.out.println(solution.subsetsWithDup(new int[] {}));
     }
 }
 
@@ -43,10 +45,6 @@ class Solution {
         // write your code here
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         if (nums == null) {
-            return result;
-        }
-        if (nums.length == 0) {
-            result.add(new ArrayList<>());
             return result;
         }
         // Sorting the array first is the easiest way to deal with duplicate results

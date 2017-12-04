@@ -1,7 +1,5 @@
 package C.BinaryTreeNDivideAndConquer.Easy.SubtreeWithMaximumAverage;
 
-import javax.xml.transform.Result;
-
 /**
  * http://www.lintcode.com/en/problem/subtree-with-maximum-average/
  * Given a binary tree, find the subtree with maximum average.
@@ -99,4 +97,3 @@ class Solution {
         return result;
     }
 }
-

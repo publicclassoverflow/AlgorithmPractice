@@ -15,13 +15,31 @@ import java.util.Arrays;
 public class LinkedListCycle {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        ListNode listOne = buildList(new ArrayList<>(Arrays.asList(
-                new ListNode(-21), new ListNode(10), new ListNode(4),
-                new ListNode(5)
-        )));
+        // Test 0: true
+        ListNode listOne = buildList(
+                new ArrayList<>(
+                        Arrays.asList(
+                                new ListNode(-21), new ListNode(10),
+                                new ListNode(4), new ListNode(5)
+                        )
+                ),
+                1
+        );  // Weird format... But I can't think of a way to make it more clear
+        System.out.println(solution.hasCycle(listOne));
+        // Test 1: false
+        ListNode listTwo = buildList(
+                new ArrayList<>(
+                        Arrays.asList(
+                                new ListNode(-21), new ListNode(10),
+                                new ListNode(4), new ListNode(5)
+                        )
+                ),
+                5
+        );
+        System.out.println(solution.hasCycle(listTwo));
     }
 
-    private static ListNode buildList(ArrayList<ListNode> nodes) {
+    private static ListNode buildList(ArrayList<ListNode> nodes, int connect) {
         if (nodes == null) {
             return null;
         }
@@ -30,7 +48,11 @@ public class LinkedListCycle {
             current.next = nodes.get(i);
             current = current.next;
         }
-        current.next = null;
+        if (connect > nodes.size()) {
+            current.next = null;
+        } else {
+            current.next = nodes.get(connect);
+        }
         return nodes.get(0);
     }
 }

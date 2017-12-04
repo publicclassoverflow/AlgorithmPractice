@@ -37,7 +37,7 @@ public class CombinationSumII {
         Solution solution = new Solution();
         // Test [10, 1, 6, 7, 2, 1, 5] and target 8
         System.out.println(solution.combinationSum2(
-                new int[]{10, 1, 6, 7, 2, 1, 5}, 8
+                new int[] {10, 1, 6, 7, 2, 1, 5}, 8
         ));
     }
 }

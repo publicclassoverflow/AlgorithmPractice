@@ -19,6 +19,11 @@ public class SqrtX {
         for (int i = 0; i < target.length; i++) {
             System.out.println(solution.sqrt(target[i]));
         }
+        int a;
+        for (a = 0; a < 10; a++) {
+            System.out.println(a);
+        }
+
     }
 }
 

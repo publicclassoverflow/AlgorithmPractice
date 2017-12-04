@@ -38,14 +38,25 @@ class Solution {
             return null;
         }
         HashMap<RandomListNode, RandomListNode> map = new HashMap<>();
-        RandomListNode dummy = new RandomListNode(0) ;
+        RandomListNode dummy = new RandomListNode(0);
         RandomListNode previous = dummy;
         RandomListNode newNode = dummy;
         while (head != null) {
             if (map.containsKey(head)) {
                 newNode = map.get(head);
+            } else {
+                newNode = new RandomListNode(head.label);
+                map.put(head, newNode);
             }
-
+            previous.next = newNode;
+            if (head.random != null) {
+                if (map.containsKey(head.random)) {
+                    newNode.random = map.get(head.random);
+                } else {
+                    newNode.random = new RandomListNode(head.random.label);
+                    map.put(head.random, newNode.random);
+                }
+            }
             previous = newNode;
             head = head.next;
         }
