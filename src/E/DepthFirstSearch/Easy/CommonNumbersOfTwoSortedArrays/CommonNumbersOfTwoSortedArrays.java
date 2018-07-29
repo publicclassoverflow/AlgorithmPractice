@@ -23,6 +23,10 @@ public class CommonNumbersOfTwoSortedArrays {
                 new ArrayList<>(Arrays.asList(1, 1, 2, 2, 3)),
                 new ArrayList<>(Arrays.asList(1, 1, 2, 5, 6))
         ));
+        System.out.println(solution.common(
+                new ArrayList<>(Arrays.asList(1, 1, 1, 1)),
+                new ArrayList<>(Arrays.asList(1, 1, 1))
+        ));
     }
 }
 
