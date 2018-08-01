@@ -1,7 +1,6 @@
-package C.BinaryTreeNDivideAndConquer.Easy.BinaryTreePostorderTraversal;
+package C.BinaryTreeNDivideAndConquer.Easy.BinaryTreePostOrderTraversal;
 
-import java.util.ArrayList;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * http://www.lintcode.com/en/problem/binary-tree-postorder-traversal/
@@ -65,23 +64,63 @@ class Solution {
      * @param root: The root of binary tree.
      * @return: Postorder in ArrayList which contains node values.
      */
-    public ArrayList<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         // write your code here
-        ArrayList<Integer> result = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
         // Method #1: Divide and Conquer
+        /*
         // Divide
-        ArrayList<Integer> leftChild = postorderTraversal(root.left);
-        ArrayList<Integer> rightChild = postorderTraversal(root.right);
+        List<Integer> leftChild = postorderTraversal(root.left);
+        List<Integer> rightChild = postorderTraversal(root.right);
         // Conquer
         result.addAll(leftChild);
         result.addAll(rightChild);
         result.add(root.val);
         return result;
+        */
 
-        // Method #2: System stack
-        // TODO(MZ): Figure it out!
+        // Method #2: stack
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.offerFirst(root);
+        TreeNode prev = null;
+        while (!stack.isEmpty()) {
+            // The current node on the top of stack is the root
+            // and it needs to be kept in place because we are
+            // visiting it again after we finish traversal from
+            // its child subtrees
+            TreeNode curr = stack.peekFirst();
+            if (prev == null || curr == prev.left || curr == prev.right) {
+                // When prev is null (root is the "root") or prev is the
+                // parent of the current node
+                // We should go down (left subtree first)
+                if (curr.left != null) {
+                    stack.offerFirst(curr.left);
+                } else if (curr.right != null) {
+                    stack.offerFirst(curr.right);
+                } else {
+                    // Child traversal has finished
+                    // Now we need to pop the stack
+                    stack.pollFirst();
+                    result.add(curr.val);
+                }
+            } else if (prev == curr.left) {
+                // When we are coming back from the left subtree
+                // We should try to go right
+                if (curr.right != null) {
+                    stack.offerFirst(curr.right);
+                } else {
+                    stack.pollFirst();
+                    result.add(curr.val);
+                }
+            } else if (prev == curr.right) {
+                stack.pollFirst();
+                result.add(curr.val);
+            }
+            prev = curr;
+        }
+        return result;
     }
 }

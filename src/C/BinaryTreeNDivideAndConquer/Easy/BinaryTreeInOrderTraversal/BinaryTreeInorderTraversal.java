@@ -1,7 +1,6 @@
 package C.BinaryTreeNDivideAndConquer.Easy.BinaryTreeInorderTraversal;
 
-import java.util.ArrayList;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * http://www.lintcode.com/en/problem/binary-tree-inorder-traversal/
@@ -84,17 +83,27 @@ class Solution {
         */
 
         // Method #2: System stack
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         // Inorder: left -> root -> right
         TreeNode node = root;
-        while (node != null || !stack.empty()) {
+        while (node != null || !stack.isEmpty()) {
+            /*
             while (node != null) {
-                stack.add(node);
+                stack.offerFirst(node);
                 node = node.left;
             }
-            node = stack.pop();
+            node = stack.pollFirst();
             result.add(node.val);
             node = node.right;
+            */
+            if (node != null) {
+                stack.offerFirst(node);
+                node = node.left;
+            } else {
+                node = stack.pollFirst();
+                result.add(node.val);
+                node = node.right;
+            }
         }
         return result;
     }
