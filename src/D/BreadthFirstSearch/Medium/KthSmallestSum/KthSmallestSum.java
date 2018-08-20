@@ -1,7 +1,5 @@
 package D.BreadthFirstSearch.Medium.KthSmallestSum;
 
-import javafx.util.Pair;
-
 import java.util.*;
 
 /**
@@ -49,6 +47,11 @@ public class KthSmallestSum {
                 new int[] {2, 3},
                 5
         )); // A[2] + B[0] = 7
+        System.out.println(solution.kthSmallestSum(
+                new int[] {1, 1, 1},
+                new int[] {1, 2},
+                3
+        ));
     }
 }
 
@@ -72,33 +75,25 @@ class Solution {
                     }
                 }
         );
-//        PairSum zeroZero = new PairSum(0, 0, A[0] + B[0]);
-//        minHeap.offer(zeroZero);
-//        Set<PairSum> picked = new HashSet<>();
-//        picked.add(zeroZero);
-        minHeap.offer(new PairSum(0, 0, A[0] + B[0]));
-        boolean[][] picked = new boolean[A.length][B.length];
+        PairSum zeroZero = new PairSum(0, 0, A[0] + B[0]);
+        minHeap.offer(zeroZero);
+        Set<PairSum> picked = new HashSet<>();
+        picked.add(zeroZero);
+//        minHeap.offer(new PairSum(0, 0, A[0] + B[0]));
+//        boolean[][] picked = new boolean[A.length][B.length];
         for (int i = 0; i < k - 1; i++) {
             PairSum current = minHeap.poll();
-            // Go to the next elemtn in A
+            // Go to the next element in A
             if (current.indexA < A.length - 1) {
                 PairSum next = new PairSum(
                         current.indexA + 1, current.indexB,
                         A[current.indexA + 1] + B[current.indexB]
                 );
-//                if (picked.contains((next))) {
-                /*
-                if (picked[next.indexA][next.indexB]) {
-                    continue;
-                }
-                minHeap.offer(next);
-//                picked.add(next);
-                picked[next.indexA][next.indexB] = true;
-                */
-                if (!picked[next.indexA][next.indexB]) {
+                if (!picked.contains((next))) {
+//                if (!picked[next.indexA][next.indexB]) {
                     minHeap.offer(next);
-//                    picked.add(next);
-                    picked[next.indexA][next.indexB] = true;
+                    picked.add(next);
+//                    picked[next.indexA][next.indexB] = true;
                 }
             }
             // Go to the next element in B
@@ -107,19 +102,11 @@ class Solution {
                         current.indexA, current.indexB + 1,
                         A[current.indexA] + B[current.indexB + 1]
                 );
-//                if (picked.contains(next)) {
-                /*
-                if (picked[next.indexA][next.indexB]) {
-                    continue;
-                }
-                minHeap.offer(next);
-//                picked.add(next);
-                picked[next.indexA][next.indexB] = true;
-                */
-                if (!picked[next.indexA][next.indexB]) {
+                if (!picked.contains(next)) {
+//                if (!picked[next.indexA][next.indexB]) {
                     minHeap.offer(next);
-//                    picked.add(next);
-                    picked[next.indexA][next.indexB] = true;
+                    picked.add(next);
+//                    picked[next.indexA][next.indexB] = true;
                 }
             }
         }
@@ -136,5 +123,20 @@ class PairSum {
         this.indexA = indexA;
         this.indexB = indexB;
         this.sum = sum;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PairSum pairSum = (PairSum) o;
+        return indexA == pairSum.indexA &&
+                indexB == pairSum.indexB &&
+                sum == pairSum.sum;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(indexA, indexB, sum);
     }
 }
