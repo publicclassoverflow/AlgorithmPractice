@@ -1,4 +1,4 @@
-package N.DynamicProgramming.I.Medium.DictionaryWordI;
+package N.DynamicProgramming.II.Medium.DictionaryWordI;
 
 import java.util.*;
 
@@ -25,6 +25,7 @@ public class DictionaryWordI {
         System.out.println(solution.canBreak("robob", new String[] {"rob", "cat", "bob"}));
         System.out.println(solution.canBreak("bobcatrob", new String[] {"rob", "cat", "bob"}));
         System.out.println(solution.canBreak("abcdddef", new String[] {"abc", "ab", "cd", "de", "def"}));
+        System.out.println(solution.canBreak("defabcdef", new String[] {"abc", "bcd", "def"}));
     }
 }
 
@@ -39,11 +40,24 @@ class Solution {
         // breakable[i] represents index i - 1 in the input
         breakable[0] = true;
         for (int i = 1; i < breakable.length; i++) {
+            String sub = input.substring(0, i);
+            if (dictionary.contains(sub)) {
+                breakable[i] = true;
+                continue;
+            }
             for (int j = 0; j < i; j++) {
-                if (dictionary.contains(input.substring(j, i)) && breakable[j]) {
+                String first = sub.substring(0, j);
+                String second = sub.substring(j, i);
+                boolean leftBig = breakable[j];
+                boolean rightSmall = dictionary.contains(second);
+                if (leftBig && rightSmall) {
                     breakable[i] = true;
                     break;
                 }
+//                if (dictionary.contains(input.substring(j, i)) && breakable[j]) {
+//                    breakable[i] = true;
+//                    break;
+//                }
             }
         }
         return breakable[breakable.length - 1];

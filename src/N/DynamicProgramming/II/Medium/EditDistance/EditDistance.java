@@ -1,4 +1,4 @@
-package N.DynamicProgramming.I.Medium.EditDistance;
+package N.DynamicProgramming.II.Medium.EditDistance;
 
 /**
  * Description
@@ -19,6 +19,7 @@ public class EditDistance {
         Solution solution = new Solution();
         System.out.println(solution.editDistance("sign", "asith")); // 2
         System.out.println(solution.editDistance("abcde", "fghij")); // 5
+        System.out.println(solution.editDistance("a", "")); // 5
     }
 }
 
@@ -28,7 +29,6 @@ class Solution {
         if (one == null || two == null) {
             return -1;
         }
-        /*
         int m = one.length();
         int n = two.length();
         int[][] edit = new int[m + 1][n + 1];
@@ -50,10 +50,10 @@ class Solution {
                 }
             }
         }
-        printMatrix(edit);
+//        printMatrix(edit);
         return edit[m - 1][n - 1];
-        */
 
+        /*
         int[][] distance = new int[one.length() + 1][two.length() + 1];
         for (int i = 0; i <= one.length(); i++) {
             for (int j = 0; j <= two.length(); j++) {
@@ -69,8 +69,9 @@ class Solution {
                 }
             }
         }
-        printMatrix(distance);
+//        printMatrix(distance);
         return distance[one.length()][two.length()];
+        */
     }
 
     private void printMatrix(int[][] edit) {

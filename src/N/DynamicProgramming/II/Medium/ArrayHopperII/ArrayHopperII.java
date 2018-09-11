@@ -1,4 +1,4 @@
-package N.DynamicProgramming.I.Medium.ArrayHopperII;
+package N.DynamicProgramming.II.Medium.ArrayHopperII;
 
 /**
  * Description
@@ -20,6 +20,8 @@ public class ArrayHopperII {
         System.out.println(solution.minJump(new int[] {3, 3, 1, 0, 4}));
         System.out.println(solution.minJump(new int[] {2, 1, 1, 0, 2}));
         System.out.println(solution.minJump(new int[] {13,52,42,21,58}));
+        System.out.println(solution.minJump(new int[] {
+        }));
     }
 }
 
@@ -34,7 +36,6 @@ class Solution {
         jumps[n - 1] = 0;
         for (int i = n - 2; i >=0; i--) {
             if (array[i] == 0) {
-//                jumps[i] = Integer.MIN_VALUE;
                 jumps[i] = -1;
                 continue;
             }
@@ -44,7 +45,6 @@ class Solution {
                     // We are out of bounds
                     break;
                 }
-//                if (jumps[i + j] == Integer.MIN_VALUE) {
                 if (jumps[i + j] == -1) {
                     // We cannot get to the end from current position
                     continue;
@@ -53,7 +53,6 @@ class Solution {
             }
             jumps[i] = minJump == Integer.MAX_VALUE ? -1 : minJump + 1;
         }
-//        return jumps[0] == Integer.MIN_VALUE ? -1 : jumps[0];
         return jumps[0];
     }
 }
