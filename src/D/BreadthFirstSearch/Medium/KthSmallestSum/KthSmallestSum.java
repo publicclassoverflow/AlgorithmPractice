@@ -68,7 +68,7 @@ class Solution {
         }
         PriorityQueue<PairSum> minHeap = new PriorityQueue<>(
                 k,
-                new Comparator<PairSum>() {
+                new Comparator<>() {
                     @Override
                     public int compare(PairSum one, PairSum two) {
                         return Integer.compare(one.sum, two.sum);

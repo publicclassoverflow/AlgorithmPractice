@@ -1,4 +1,4 @@
-package Z.Ohters.Naive.ReverseInteger;
+package Z.Others.Naive.ReverseInteger;
 
 public class ReverseInteger {
     public static void main(String[] args) {
